@@ -16,7 +16,7 @@ for i in range(k-1):
     _, idx1, idx2 = heapq.heappop(pq)
 
     idx2 += 1
-    if idx2 <m and  
+    if idx2 <m:
         heapq.heappush(pq, (arr1[idx1] + arr2[idx2], idx1, idx2))
 
 pair_sum, _, _ = heapq.heappop(pq)
