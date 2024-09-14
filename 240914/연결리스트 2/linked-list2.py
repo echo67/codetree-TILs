@@ -44,12 +44,6 @@ def printNode(i):
     else:
         print(0)
 
-
-    
-    
-    
-
-
 for _ in range(q):
     command = list(map(int, input().split()))
     option = command[0]
@@ -59,11 +53,11 @@ for _ in range(q):
 
     elif option == 2:
         j = command[2]
-        insertPrev(node[i], node[j])
+        insertPrev(nodes[i], nodes[j])
 
     elif option == 3:
         j = command[2]
-        insertNext(node[i], node[j])
+        insertNext(nodes[i], nodes[j])
     elif option == 4:
         print((0 if nodes[i].prev is None else nodes[i].prev.id), (0 if nodes[i].next is None else nodes[i].next.id))
 
