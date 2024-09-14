@@ -61,6 +61,6 @@ for _ in range(n):
     
     if option == 4:
         if cur.next is not None:
-            cur = cur.insertNext
+            cur = cur.next
     
     printNode(cur)
