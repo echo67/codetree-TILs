@@ -5,20 +5,20 @@ class Node:
         self.next = None
 
 def insertPrev(u, singleton):
-    singlton.prev = u.prev
-    singlton.next = u
-    if singlton.prev is not None:
-        singlton.prev.next = singlton
-    if singlton.next is not None:
-        singlton.next.prev = singlton
+    singleton.prev = u.prev
+    singleton.next = u
+    if singleton.prev is not None:
+        singleton.prev.next = singleton
+    if singleton.next is not None:
+        singleton.next.prev = singleton
 
-def insertNext(u, singlton):
-    singlton.prev = u
-    singlton.next = u.next
-    if singlton.prev is not None:
-        singlton.prev.next = singlton
-    if singlton.next is not None:
-        singlton.next.prev = singlton
+def insertNext(u, singleton):
+    singleton.prev = u
+    singleton.next = u.next
+    if singleton.prev is not None:
+        singleton.prev.next = singleton
+    if singleton.next is not None:
+        singleton.next.prev = singleton
 
 def pop(u):
     if u.prev is not None:
