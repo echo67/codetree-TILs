@@ -1,7 +1,7 @@
 def tri(arr, y, x):
     max_sum = 0
 
-    if y + 1 >= n or x + 1 >= n:
+    if y + 1 >= n or x + 1 >= m:
         return 0
 
     sum_tri1 = arr[y][x] + arr[y+1][x] + arr[y][x+1]
@@ -21,15 +21,13 @@ def in_line_y(arr, y, x):
     return y + 2 < n and y + 1 < n 
 
 def in_line_x(arr, y, x):
-    return x + 2 < n and x + 1 < n
+    return x + 2 < m and x + 1 < m
 
 def line(arr, y, x):
     max_sum = 0
     if in_line_y(arr, y, x):
         sum_tri1 = arr[y][x] + arr[y+1][x] + arr[y+2][x]
         max_sum = max(max_sum, sum_tri1)
-
-        
     return max_sum
 
 def line2(arr, y, x):
@@ -50,6 +48,6 @@ for i in range(n):
         max2 = line(arr, i, j)
         max3 = line2(arr, i, j)
         max_max = max(max1, max2, max3, max_max)
-    
+        # print(i, j, max1, max2, max3, max_max)
 
 print(max_max)
