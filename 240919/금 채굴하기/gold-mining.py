@@ -45,7 +45,7 @@ for y in range(n):
     for x in range(n):
         for k in range(n):
             gold, profit = square(y, x, k)
-            if profit > 0 and gold > max_gold:
-                max_gold, _ = gold, profit
+            if profit >= 0 and gold > max_gold:
+                max_gold, profit = gold, profit
 
 print(max_gold)
