@@ -10,6 +10,8 @@ def bomb_explode(s, e):
 
 def run():
     global arr, bomb_blank
+    if m == 1:
+        return 0
     len_arr = len(arr)
     bomb_blank = [True] * len_arr
     temp = []
@@ -24,7 +26,7 @@ def run():
             e = i
             bomb_explode(s,e)
             s = None
-            break
+            # break
 
     if arr[len_arr-1] == arr[len_arr-2] and s != None:
         e = len_arr-1
