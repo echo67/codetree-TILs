@@ -11,7 +11,7 @@ curr_num = arr[r-1][c-1]
 curr_pos = (r-1, c-1)
 visited_num.append(arr[r-1][c-1])
 larger_num = 0
-larger_pos = (-1, -1)
+larger_pos = curr_pos
 
 def in_range(y, x):
     return 0 <= y < n and 0 <= x < n
@@ -20,10 +20,10 @@ while True:
     y, x = curr_pos
     for dy, dx in zip(dys, dxs):
         ny, nx = y + dy, x + dx
-        new_num = arr[ny][nx]
+        # new_num = arr[ny][nx]
 
-        if in_range(ny, nx) and new_num > curr_num:
-            larger_num = new_num
+        if in_range(ny, nx) and arr[ny][nx] > curr_num:
+            larger_num = arr[ny][nx]
             larger_pos = (ny, nx)
             break
 
