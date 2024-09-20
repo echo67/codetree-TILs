@@ -4,9 +4,12 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 
 stick = [(0, i) for i in range(k-1, k-1+m)]
 
+def in_range(y, x):
+    return 0 <= y < n-1 and 0 <= x <n
+
 def can_go():
     for y, x in stick:
-        if arr[y+1][x] == 1:
+        if not in_range(y,x) or arr[y+1][x] == 1:
             return False
     return True
 
