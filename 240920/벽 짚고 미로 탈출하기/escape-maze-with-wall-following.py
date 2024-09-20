@@ -35,9 +35,6 @@ def front_wall_check():
 
 step = 0
 while in_range(y, x):
-    if (y, x) == (init_y, init_x):
-        print(-1)
-        break
     if front_wall_check():
         front_wall()
         step += 1
@@ -47,6 +44,8 @@ while in_range(y, x):
     else:
         no_right_wall()
         step += 1
+    if (y, x) == (init_y, init_x):
+        step = -1
+        break
 
-if step >0:
-    print(step)
+print(step)
