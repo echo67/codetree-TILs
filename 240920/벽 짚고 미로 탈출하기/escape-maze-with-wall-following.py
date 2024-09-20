@@ -2,6 +2,7 @@ n = int(input())
 
 y, x = tuple(map(int, input().split()))
 y, x = y-1, x-1
+init_y, init_x = y, x
 
 arr = [list(input()) for _ in range(n)]
 
@@ -34,6 +35,9 @@ def front_wall_check():
 
 step = 0
 while in_range(y, x):
+    if (y, x) == (init_y, init_x):
+        print(-1)
+        break
     if front_wall_check():
         front_wall()
         step += 1
@@ -44,4 +48,5 @@ while in_range(y, x):
         no_right_wall()
         step += 1
 
-print(step)
+if step >0:
+    print(step)
