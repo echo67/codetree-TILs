@@ -19,14 +19,16 @@ def run():
     for i in range(len_arr-1):
         if arr[i] == arr[i+1] and s == None:
             s = i
-            if i+1 == len_arr-1:
-                e = len_arr-1
-                bomb_explode(s,e)
 
         elif (arr[i] != arr[i+1] or i==n-1) and s != None:
             e = i
             bomb_explode(s,e)
             s = None
+            break
+
+    if arr[len_arr-1] == arr[len_arr-2] and s != None:
+        e = len_arr-1
+        bomb_explode(s,e)
 
     # 하나라도 폭탄 터졌을 때
     if any(i == False for i in bomb_blank):
