@@ -33,8 +33,12 @@ def front_wall_check():
     ny, nx = y+dys[move_dir], x+dxs[move_dir]
     return in_range(ny, nx) and arr[ny][nx] == '#'
 
+
+
 step = 0
+step_set = set()
 while in_range(y, x):
+    step_set.add((y, x))
     if front_wall_check():
         front_wall()
         step += 1
@@ -44,8 +48,8 @@ while in_range(y, x):
     else:
         no_right_wall()
         step += 1
-    if (y, x) == (init_y, init_x):
+    if (y, x) in step_set:
         step = -1
         break
-
+    
 print(step)
