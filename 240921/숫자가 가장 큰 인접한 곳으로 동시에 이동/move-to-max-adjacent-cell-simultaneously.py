@@ -36,7 +36,7 @@ for _ in range(t):
         y, x = elem
         ny, nx = move_next(y-1, x-1)
         next_count[ny][nx] += 1
-        next_pos.append([ny, nx])
+        next_pos.append((ny+1, nx+1))
 
     count = next_count
 
