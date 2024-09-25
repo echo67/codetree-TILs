@@ -1,32 +1,33 @@
 n = int(input())
 a = [list(map(int, input().split())) for _ in range(n)]
 
-row_visited = [False] * n
-col_visited = [False] * n
+visited = [False] * n
 
-selected_num = []
+selected_col = []
 
 ans = 0
 def find_max(curr):
     global ans
+
     if curr == n:
-        ans = max(ans, sum(selected_num))
+        sum_val = 0
+        for i in range(n):
+            sum_val += a[i][selected_col[i]]
+        ans = max(ans, sum_val)
         return
 
     for i in range(n):
-        for j in range(n):
-            if row_visited[i] or col_visited[j]:
-                continue
+        if visited[i]:
+            continue
 
-            selected_num.append(a[i][j])
-            row_visited[i] = True
-            col_visited[j] = True
+        selected_col.append(i)
+        visited[i] = True
 
-            find_max(curr + 1)
+        find_max(curr + 1)
 
-            selected_num.pop()
-            row_visited[i] = False
-            col_visited[j] = False
+        selected_col.pop()
+        visited[i] = False
+
 
 find_max(0)
 print(ans)
