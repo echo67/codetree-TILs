@@ -27,6 +27,9 @@ def find_min(curr):
         if curr==n-2 and a[i-1][0]==0:
             continue
 
+        if curr == 0 and a[0][i-1]==0:
+            continue
+
         selected.append(i)
         visited[i-2] = True
         
