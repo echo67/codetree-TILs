@@ -1,13 +1,17 @@
-import sys
-
-MAX_N = 46
 n = int(input())
 
-dp = [0] * MAX_N
-dp[1] = 1
-dp[2] = 1
+UNUSED = -1
 
-for i in range(3, n+1):
-    dp[i] = dp[i-1] + dp [i-2]
+memo = [UNUSED for _ in range(n+1)]
 
-print(dp[n])
+def fib(n):
+    if memo[n] != UNUSED:
+        return memo[n]
+
+    if n == 1 or n == 2:
+        return 1
+
+    memo[n] = fib(n-1) + fib(n-2)
+    return memo[n]
+
+print(fib(n))
